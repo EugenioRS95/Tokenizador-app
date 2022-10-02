@@ -1,0 +1,30 @@
+{
+  "name": "Tokenizacion-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "serverless offline",
+    "deploy": "serverless deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.106",
+    "@types/dotenv-safe": "^8.1.2",
+    "@types/mongoose": "^5.11.97",
+    "esbuild": "^0.15.10",
+    "serverless": "^3.22.0",
+    "serverless-esbuild": "^1.33.0",
+    "serverless-offline": "^11.0.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.10",
+    "rand-token": "^1.0.1",
+    "uuid": "^9.0.0"
+  }
+}

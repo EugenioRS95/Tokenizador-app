@@ -1,0 +1,42 @@
+service: tokenizacion
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-west-2
+  environment:
+    NODE_ENV: dev
+
+custom:
+  esbuild:
+    bundle: true
+    minify: true
+  serverless-offline:
+    noPrependStageInUrl: true
+
+plugins:
+  - serverless-offline
+  - serverless-esbuild
+
+package:
+  exclude:
+    - config/.env.stg
+    - config/.env.pro
+  include:
+    - config/.env.dev
+
+functions:
+  generateToken:
+    handler: app/handler.generateToken
+    events:
+      - http:
+          path: /generateToken
+          method: post
+  getCustomerAccount:
+    handler: app/handler.getCustomer
+    events:
+      - http:
+          path: /getCustomer
+          method: get
+
+
