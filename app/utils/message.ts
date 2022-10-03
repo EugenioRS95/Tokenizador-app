@@ -36,12 +36,6 @@ export class MessageUtil {
         return result.bodyToString();
     }
 
-    static generateResult(data: object, code: number,message: string): ResponseVO {
-        const result = new Result(StatusCode.success, code, message);
-
-        return result.bodyToString();
-    }
-
     static error(code: number = 1000, message: string) {
         const result = new Result(StatusCode.success, code,message);
 

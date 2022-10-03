@@ -1,11 +1,11 @@
 import { Handler, Context } from 'aws-lambda';
 import dotenv from 'dotenv';
-import path from 'path';
-const dotenvPath = path.join(__dirname, '../', `config/.env.${process.env.NODE_ENV}`);
-dotenv.config({
-    path: dotenvPath,
-});
-
+//import path from 'path';
+// const dotenvPath = path.join(__dirname, '../', `config/.env.${process.env.NODE_ENV}`);
+// dotenv.config({
+//     path: dotenvPath,
+// });
+dotenv.config();
 
 import { customerAccounts, tokens } from './model';
 import { CustomerAccountsController } from './controller/customerAccounts';

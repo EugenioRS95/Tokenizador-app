@@ -20,10 +20,6 @@ export class CustomerAccountsController extends CustomerAccountsService {
         let newToken: string = "";
         let cardType: string = "";
         let domainEmail: string = "";
-
-        //console.log("id de token: ",idToken);
-        //console.log("id de cliente: ",idCustomer);
-        //console.log("clave: ",process.env.SECRET_KEY);
         
         if(!this.validateHeaderPK(event.headers['Authorization'].split(" ")[1])){
             return MessageUtil.error(2000, 'Pk de negocio incorrecto.');
@@ -73,8 +69,6 @@ export class CustomerAccountsController extends CustomerAccountsService {
             return MessageUtil.error(1010, 'Dominio de email inválido.');
         }
 
-        //generamos el id de 16 char
-        //generamos token de jwt con el id de la tarjeta
         newToken = sign({idCustomer: idCustomer}, process.env.SECRET_KEY,{
             expiresIn: 60*15
         });
@@ -95,6 +89,9 @@ export class CustomerAccountsController extends CustomerAccountsService {
                 expiration_year: params.expiration_year,
                 expiration_month: this.getMonthNumberString(params.expiration_month)                 
             });
+            if(!account) {
+                return MessageUtil.error(1000, "Ha ocurrido un error al registrar el cliente");
+            }
 
             const result = {token: idToken};
 
@@ -110,7 +107,7 @@ export class CustomerAccountsController extends CustomerAccountsService {
         console.log('functionName', context?.functionName);
         let idToken: string = "";
         
-
+        
         if(!this.validateHeaderPK(event.headers['Authorization'].split(" ")[1])){
             return MessageUtil.error(2000, 'Pk de negocio incorrecto.');
         }
