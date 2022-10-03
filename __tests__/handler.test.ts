@@ -11,7 +11,7 @@ describe('JR Generador de Token',  () => {
     const event = {
         body: '{\r\n' +
     '    \r\n' +
-    '    "email": "jorgerubina12@gmail.com",\r\n' +
+    '    "email": "test@gmail.com",\r\n' +
     '    "card_number": 4919148339734773,\r\n' +
     '    "cvv": 123,\r\n' +
     '    "expiration_year": "2027",\r\n' +
@@ -48,7 +48,7 @@ describe('JR Generador de Token',  () => {
             "code": 0,
             "message": "success",
             "data": {
-                "email": "jorgerubina12@gmail.com",
+                "email": "test@gmail.com",
                 "card_number": 4919148339734773,
                 "expiration_year": "2027",
                 "expiration_month": "03"
