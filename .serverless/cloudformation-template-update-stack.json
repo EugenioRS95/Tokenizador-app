@@ -167,7 +167,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tokenizacion/dev/1664839523887-2022-10-03T23:25:23.887Z/tokenizacion.zip"
+          "S3Key": "serverless/tokenizacion/dev/1664840515958-2022-10-03T23:41:55.958Z/tokenizacion.zip"
         },
         "Handler": "app/handler.generateToken",
         "Runtime": "nodejs14.x",
@@ -177,11 +177,11 @@
         "Environment": {
           "Variables": {
             "NODE_ENV": "dev",
-            "DB_URL": "",
-            "DB_NAME": "",
-            "DB_CUSTOMERACCOUNTS_COLLECTION": "",
-            "DB_TOKENS_COLLECTION": "",
-            "SECRET_KEY": ""
+            "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/userAccountDatabase?retryWrites=true&w=majority",
+            "DB_NAME": "userAccountDatabase",
+            "DB_CUSTOMERACCOUNTS_COLLECTION": "customerAccounts",
+            "DB_TOKENS_COLLECTION": "tokens",
+            "SECRET_KEY": "delfosti"
           }
         },
         "Role": {
@@ -202,7 +202,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tokenizacion/dev/1664839523887-2022-10-03T23:25:23.887Z/tokenizacion.zip"
+          "S3Key": "serverless/tokenizacion/dev/1664840515958-2022-10-03T23:41:55.958Z/tokenizacion.zip"
         },
         "Handler": "app/handler.getCustomer",
         "Runtime": "nodejs14.x",
@@ -212,11 +212,11 @@
         "Environment": {
           "Variables": {
             "NODE_ENV": "dev",
-            "DB_URL": "",
-            "DB_NAME": "",
-            "DB_CUSTOMERACCOUNTS_COLLECTION": "",
-            "DB_TOKENS_COLLECTION": "",
-            "SECRET_KEY": ""
+            "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/userAccountDatabase?retryWrites=true&w=majority",
+            "DB_NAME": "userAccountDatabase",
+            "DB_CUSTOMERACCOUNTS_COLLECTION": "customerAccounts",
+            "DB_TOKENS_COLLECTION": "tokens",
+            "SECRET_KEY": "delfosti"
           }
         },
         "Role": {
@@ -230,7 +230,7 @@
         "JrGetCustomerAccountLogGroup"
       ]
     },
-    "JrGenerateTokenLambdaVersiontXpLiGaM5TQCFsqBnKYwg5ObaLAUKq3K0QvfAA": {
+    "JrGenerateTokenLambdaVersionvIyF2gqRSa0Az6WfCZdbFYvBk8ecQs3tlhI6L22U": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
@@ -240,7 +240,7 @@
         "CodeSha256": "jh5mjVCB4udL04iQQS4y7lRc9RrFxntBllq/23kq2nE="
       }
     },
-    "JrGetCustomerAccountLambdaVersionNk5RW4K418fY16Ngp88vwTOz0rM26ilPQEsYfZLDYY": {
+    "JrGetCustomerAccountLambdaVersionuoA6oHT6OwD3Em9mPsXUl524jXnSVshe3khIuT2Avs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
@@ -384,7 +384,7 @@
         "JrGetCustomerAccountLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1664839522511": {
+    "ApiGatewayDeployment1664840514537": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -484,7 +484,7 @@
     "JrGenerateTokenLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "JrGenerateTokenLambdaVersiontXpLiGaM5TQCFsqBnKYwg5ObaLAUKq3K0QvfAA"
+        "Ref": "JrGenerateTokenLambdaVersionvIyF2gqRSa0Az6WfCZdbFYvBk8ecQs3tlhI6L22U"
       },
       "Export": {
         "Name": "sls-tokenizacion-dev-JrGenerateTokenLambdaFunctionQualifiedArn"
@@ -493,7 +493,7 @@
     "JrGetCustomerAccountLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "JrGetCustomerAccountLambdaVersionNk5RW4K418fY16Ngp88vwTOz0rM26ilPQEsYfZLDYY"
+        "Ref": "JrGetCustomerAccountLambdaVersionuoA6oHT6OwD3Em9mPsXUl524jXnSVshe3khIuT2Avs"
       },
       "Export": {
         "Name": "sls-tokenizacion-dev-JrGetCustomerAccountLambdaFunctionQualifiedArn"
