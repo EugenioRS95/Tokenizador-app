@@ -11,7 +11,6 @@ Se expone el proyecto tokenizador de tarjeta de crédito.
 * Serverless offline
 * NodeJs 14.18
 * Jest
-* Axios
 * Esbuild
 
 ## Primero configurar con las credenciales de acceso a AWS con el comando
