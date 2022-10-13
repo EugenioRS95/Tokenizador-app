@@ -42,3 +42,21 @@ Pueden ser las mismas que las credenciales configuradas inicialmente, siempre y 
 
 ## Ejecución de test de pruebas
 * Ejecutar ```npm run test``` para ejecutar los test de pruebas.
+
+
+## Body de envío para el servicio ```/dev/generateToken```
+ ```
+{    
+    "email": string,
+    "card_number": number,
+    "cvv": number,
+    "expiration_year": string,
+    "expiration_month": string
+}
+```
+
+## Cabecera(header) Bearer token para el servicio ```/dev/getCustomer```
+
+* pk_tknzr_"token"
+
+
