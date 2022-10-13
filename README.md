@@ -10,35 +10,35 @@ Se expone el proyecto tokenizador de tarjeta de crédito.
 * Multi-environment administrado bajo Serverless
 * Serverless offline
 * NodeJs 14.18
+* Jest
+* Axios
+* Esbuild
 
 ## Primero configurar con las credenciales de acceso a AWS con el comando
  ```
 $ aws configure
 ```
+* `aws_access_key_id`
+* `aws_secret_access_key`
 
-## Despliegue
-
-### Probar la aplicación localmente
+### Instalar las dependencias necesarias
 
 * Ejecutar ```npm install``` para instalar las dependencias necesarias.
-* Ejecutar ```npm run dev``` para desplegar en serverless offline localmente. 
 
-### Envío pk en el request a los endpoints
-* Envío de pk a través del header Authorization ```Bearer pk_tknzr_``` para el registro de cliente y generación de token.
-* Envío de pk a través del header Authorization ```Bearer pk_tknzr_<TOKEN>``` para la obtención de datos de la tarjeta.
+### Configurar el archivo `.env` para su conexión con DynamoDB
+Pueden ser las mismas que las credenciales configuradas inicialmente, siempre y cuando tenga los permisos necesarios.
 
-### Despliegue en AWS, simplemente ejecutar:
+* `DB_URL`
+* `DB_NAME`
+* `DB_CUSTOMERACCOUNTS_COLLECTION`
+* `DB_TOKENS_COLLECTION`
 
-```
-$ npm run deploy
+## Despliegue Local
 
-# or
+* Ejecutar ```npm run dev``` para desplegar localmente.
 
-$ serverless deploy
-```
+## Despliegue en AWS
+* Ejecutar ```npm run deploy``` para desplegar en AWS.
 
-### Para realizar el testeo de los endpoint ejecutar:
-```
-$ npm run test
-
-```
+## Ejecución de test de pruebas
+* Ejecutar ```npm run test``` para ejecutar los test de pruebas.
