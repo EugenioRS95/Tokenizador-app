@@ -6,7 +6,8 @@ export type customerAccountsDocument = mongoose.Document & {
     card_number: number,
     cvv: number,
     expiration_year: string,
-    expiration_month: string
+    expiration_month: string,
+    token: string
 };
 
 const customerAccountsSchema = new mongoose.Schema({
@@ -15,7 +16,9 @@ const customerAccountsSchema = new mongoose.Schema({
     card_number: Number,
     cvv: Number,
     expiration_year: String,
-    expiration_month: String
+    expiration_month: String,
+    token: String,
+    createdAt: { type: Date, expires: '16m', default: Date.now }
 });
 
 export const customerAccounts = (mongoose.models.customerAccounts || 

@@ -1,9 +1,9 @@
-service: tokenizacion
+service: TokenizadorApp
 
 provider:
   name: aws
   runtime: nodejs14.x
-  region: us-east-1
+  region: us-west-2
   environment:
     NODE_ENV: dev
 
@@ -20,13 +20,6 @@ plugins:
   - serverless-offline
   - serverless-esbuild
   - serverless-dotenv-plugin
-
-package:
-  exclude:
-    - config/.env.stg
-    - config/.env.pro
-  include:
-    - config/.env.dev
 
 functions:
   jrGenerateToken:

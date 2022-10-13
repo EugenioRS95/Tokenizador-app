@@ -1,3 +1,5 @@
-config/.env.dev
+*.serverless
 node_modules
 .env
+
+.serverless

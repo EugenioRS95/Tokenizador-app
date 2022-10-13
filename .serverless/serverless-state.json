@@ -1,20 +1,19 @@
 {
   "service": {
-    "service": "tokenizacion",
+    "service": "TokenizadorApp",
     "serviceObject": {
-      "name": "tokenizacion"
+      "name": "TokenizadorApp"
     },
     "provider": {
       "name": "aws",
       "runtime": "nodejs14.x",
-      "region": "us-east-1",
+      "region": "us-west-2",
       "environment": {
         "NODE_ENV": "dev",
-        "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/userAccountDatabase?retryWrites=true&w=majority",
+        "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/accountsDatabase?retryWrites=true&w=majority",
         "DB_NAME": "userAccountDatabase",
         "DB_CUSTOMERACCOUNTS_COLLECTION": "customerAccounts",
-        "DB_TOKENS_COLLECTION": "tokens",
-        "SECRET_KEY": "delfosti"
+        "DB_TOKENS_COLLECTION": "tokens"
       },
       "stage": "dev",
       "versionFunctions": true,
@@ -94,13 +93,13 @@
           "JrGenerateTokenLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/tokenizacion-dev-jrGenerateToken"
+              "LogGroupName": "/aws/lambda/TokenizadorApp-dev-jrGenerateToken"
             }
           },
           "JrGetCustomerAccountLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/tokenizacion-dev-jrGetCustomerAccount"
+              "LogGroupName": "/aws/lambda/TokenizadorApp-dev-jrGetCustomerAccount"
             }
           },
           "IamRoleLambdaExecution": {
@@ -128,7 +127,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "tokenizacion",
+                        "TokenizadorApp",
                         "dev",
                         "lambda"
                       ]
@@ -145,7 +144,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/tokenizacion-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/TokenizadorApp-dev*:*"
                           }
                         ]
                       },
@@ -156,7 +155,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/tokenizacion-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/TokenizadorApp-dev*:*:*"
                           }
                         ]
                       }
@@ -169,7 +168,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "tokenizacion",
+                    "TokenizadorApp",
                     "dev",
                     {
                       "Ref": "AWS::Region"
@@ -187,21 +186,20 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/tokenizacion/dev/1664840515958-2022-10-03T23:41:55.958Z/tokenizacion.zip"
+                "S3Key": "serverless/TokenizadorApp/dev/1665620522527-2022-10-13T00:22:02.527Z/TokenizadorApp.zip"
               },
               "Handler": "app/handler.generateToken",
               "Runtime": "nodejs14.x",
-              "FunctionName": "tokenizacion-dev-jrGenerateToken",
+              "FunctionName": "TokenizadorApp-dev-jrGenerateToken",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
                 "Variables": {
                   "NODE_ENV": "dev",
-                  "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/userAccountDatabase?retryWrites=true&w=majority",
+                  "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/accountsDatabase?retryWrites=true&w=majority",
                   "DB_NAME": "userAccountDatabase",
                   "DB_CUSTOMERACCOUNTS_COLLECTION": "customerAccounts",
-                  "DB_TOKENS_COLLECTION": "tokens",
-                  "SECRET_KEY": "delfosti"
+                  "DB_TOKENS_COLLECTION": "tokens"
                 }
               },
               "Role": {
@@ -222,21 +220,20 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/tokenizacion/dev/1664840515958-2022-10-03T23:41:55.958Z/tokenizacion.zip"
+                "S3Key": "serverless/TokenizadorApp/dev/1665620522527-2022-10-13T00:22:02.527Z/TokenizadorApp.zip"
               },
               "Handler": "app/handler.getCustomer",
               "Runtime": "nodejs14.x",
-              "FunctionName": "tokenizacion-dev-jrGetCustomerAccount",
+              "FunctionName": "TokenizadorApp-dev-jrGetCustomerAccount",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
                 "Variables": {
                   "NODE_ENV": "dev",
-                  "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/userAccountDatabase?retryWrites=true&w=majority",
+                  "DB_URL": "mongodb+srv://jrubina95:72759475@cluster0.jvhkskb.mongodb.net/accountsDatabase?retryWrites=true&w=majority",
                   "DB_NAME": "userAccountDatabase",
                   "DB_CUSTOMERACCOUNTS_COLLECTION": "customerAccounts",
-                  "DB_TOKENS_COLLECTION": "tokens",
-                  "SECRET_KEY": "delfosti"
+                  "DB_TOKENS_COLLECTION": "tokens"
                 }
               },
               "Role": {
@@ -250,30 +247,30 @@
               "JrGetCustomerAccountLogGroup"
             ]
           },
-          "JrGenerateTokenLambdaVersionvIyF2gqRSa0Az6WfCZdbFYvBk8ecQs3tlhI6L22U": {
+          "JrGenerateTokenLambdaVersionBlbpUW7Sj5VSoc8SCdWe1bCSHks32QNQXDzsY0ITIo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "JrGenerateTokenLambdaFunction"
               },
-              "CodeSha256": "jh5mjVCB4udL04iQQS4y7lRc9RrFxntBllq/23kq2nE="
+              "CodeSha256": "DIABPDwTght8XybXuPqpeeYtofG0qUme1WoTvS1TIgk="
             }
           },
-          "JrGetCustomerAccountLambdaVersionuoA6oHT6OwD3Em9mPsXUl524jXnSVshe3khIuT2Avs": {
+          "JrGetCustomerAccountLambdaVersionl22F6BFTQYPRUFM5efrTezyKkGAQSQyW7ITLLpHM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "JrGetCustomerAccountLambdaFunction"
               },
-              "CodeSha256": "jh5mjVCB4udL04iQQS4y7lRc9RrFxntBllq/23kq2nE="
+              "CodeSha256": "DIABPDwTght8XybXuPqpeeYtofG0qUme1WoTvS1TIgk="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-tokenizacion",
+              "Name": "dev-TokenizadorApp",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -404,7 +401,7 @@
               "JrGetCustomerAccountLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1664840514537": {
+          "ApiGatewayDeployment1665620521192": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -498,25 +495,25 @@
               "Ref": "ServerlessDeploymentBucket"
             },
             "Export": {
-              "Name": "sls-tokenizacion-dev-ServerlessDeploymentBucketName"
+              "Name": "sls-TokenizadorApp-dev-ServerlessDeploymentBucketName"
             }
           },
           "JrGenerateTokenLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "JrGenerateTokenLambdaVersionvIyF2gqRSa0Az6WfCZdbFYvBk8ecQs3tlhI6L22U"
+              "Ref": "JrGenerateTokenLambdaVersionBlbpUW7Sj5VSoc8SCdWe1bCSHks32QNQXDzsY0ITIo"
             },
             "Export": {
-              "Name": "sls-tokenizacion-dev-JrGenerateTokenLambdaFunctionQualifiedArn"
+              "Name": "sls-TokenizadorApp-dev-JrGenerateTokenLambdaFunctionQualifiedArn"
             }
           },
           "JrGetCustomerAccountLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "JrGetCustomerAccountLambdaVersionuoA6oHT6OwD3Em9mPsXUl524jXnSVshe3khIuT2Avs"
+              "Ref": "JrGetCustomerAccountLambdaVersionl22F6BFTQYPRUFM5efrTezyKkGAQSQyW7ITLLpHM"
             },
             "Export": {
-              "Name": "sls-tokenizacion-dev-JrGetCustomerAccountLambdaFunctionQualifiedArn"
+              "Name": "sls-TokenizadorApp-dev-JrGetCustomerAccountLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -542,7 +539,7 @@
               ]
             },
             "Export": {
-              "Name": "sls-tokenizacion-dev-ServiceEndpoint"
+              "Name": "sls-TokenizadorApp-dev-ServiceEndpoint"
             }
           }
         }
@@ -658,7 +655,7 @@
             }
           }
         ],
-        "name": "tokenizacion-dev-jrGenerateToken",
+        "name": "TokenizadorApp-dev-jrGenerateToken",
         "package": {
           "patterns": []
         },
@@ -666,7 +663,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "JrGenerateTokenLambdaVersionvIyF2gqRSa0Az6WfCZdbFYvBk8ecQs3tlhI6L22U"
+        "versionLogicalId": "JrGenerateTokenLambdaVersionBlbpUW7Sj5VSoc8SCdWe1bCSHks32QNQXDzsY0ITIo"
       },
       "jrGetCustomerAccount": {
         "handler": "app/handler.getCustomer",
@@ -679,7 +676,7 @@
             }
           }
         ],
-        "name": "tokenizacion-dev-jrGetCustomerAccount",
+        "name": "TokenizadorApp-dev-jrGetCustomerAccount",
         "package": {
           "patterns": []
         },
@@ -687,13 +684,13 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "JrGetCustomerAccountLambdaVersionuoA6oHT6OwD3Em9mPsXUl524jXnSVshe3khIuT2Avs"
+        "versionLogicalId": "JrGetCustomerAccountLambdaVersionl22F6BFTQYPRUFM5efrTezyKkGAQSQyW7ITLLpHM"
       }
     },
     "configValidationMode": "warn",
     "serviceFilename": "serverless.yml",
     "initialServerlessConfig": {
-      "service": "tokenizacion",
+      "service": "TokenizadorApp",
       "provider": {
         "$ref": "$[\"service\"][\"provider\"]"
       },
@@ -704,16 +701,6 @@
       "plugins": {
         "$ref": "$[\"service\"][\"plugins\"]"
       },
-      "package": {
-        "exclude": [
-          "config/.env.stg",
-          "config/.env.pro"
-        ],
-        "include": [
-          "config/.env.dev"
-        ],
-        "artifactsS3KeyDirname": "serverless/tokenizacion/dev/code-artifacts"
-      },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
       }
@@ -722,7 +709,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/tokenizacion/dev/1664840515958-2022-10-03T23:41:55.958Z",
-    "artifact": "tokenizacion.zip"
+    "artifactDirectoryName": "serverless/TokenizadorApp/dev/1665620522527-2022-10-13T00:22:02.527Z",
+    "artifact": "TokenizadorApp.zip"
   }
 }

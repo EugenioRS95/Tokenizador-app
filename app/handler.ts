@@ -1,15 +1,7 @@
 import { Handler, Context } from 'aws-lambda';
-import dotenv from 'dotenv';
-//import path from 'path';
-// const dotenvPath = path.join(__dirname, '../', `config/.env.${process.env.NODE_ENV}`);
-// dotenv.config({
-//     path: dotenvPath,
-// });
-dotenv.config();
-
-import { customerAccounts, tokens } from './model';
+import { CustomerAccountServiceImpl } from './service/serviceImpl/customerAccountServiceImpl';
 import { CustomerAccountsController } from './controller/customerAccounts';
-const customerAccountsController = new CustomerAccountsController(customerAccounts, tokens);
+const customerAccountsController = new CustomerAccountsController(new CustomerAccountServiceImpl());
 
 export const generateToken: Handler = (event: any, context: Context) => {
     return customerAccountsController.generateToken(event,context);
